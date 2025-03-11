@@ -22,7 +22,7 @@ signal.signal(signal.SIGINT, signal_handler)
 def cli(ctx: Context) -> None:
     ctx.ensure_object(dict)
     with open("config.yaml") as file:
-        config = yaml.load(file, Loader=yaml.FullLoader)
+        config = yaml.load(file, Loader=yaml.SafeLoader)
     ctx.obj["config"] = ArchivistConfig(**config)
 
 
